@@ -1,6 +1,7 @@
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import LoadingScreen from "../pages/admin/components/util/loading-screen";
+import { event } from "../lib/fpixel";
 
 const ShopForm = ({ productId, productName, setDeliveryPrice }) => {
   const router = useRouter();
@@ -38,6 +39,8 @@ const ShopForm = ({ productId, productName, setDeliveryPrice }) => {
     try {
       const data = await (await fetch("/api/order_product", options)).json();
       setFormIsSendingData(false);
+      const response = event("Purchase", { currency: "USD", value: 3000 });
+      console.log("Response from Facebook Pixel event:", response);
       router.push("/success");
     } catch (err) {
       console.log(err);
