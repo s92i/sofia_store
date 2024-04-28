@@ -12,6 +12,10 @@ export default function Document() {
             src="https://www.facebook.com/tr?id=1239828783658150&ev=PageView&noscript=1"
           />
         </noscript>
+        <meta
+          name="facebook-domain-verification"
+          content="8qziznv2fp8zrkqa309c4yoruzqtjt"
+        />
       </Head>
       <body>
         <Main />
